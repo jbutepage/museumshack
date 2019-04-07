@@ -1,10 +1,8 @@
 import numpy as np
-import matplotlib.pyplot as plt
 # 0 nothing
 # 1 red
 # 2 blue
 # 3 green
-
 
 def build_maze():
     maze = np.zeros((6,11))
@@ -42,9 +40,24 @@ def build_maze():
     maze2[:,-1] = 3
     maze2[1:-1,1:-1] = maze
     
-    
     return maze2
-    
 
-maze = build_maze()
-plt.imshow(maze)
+def build_maze_2():
+    W = -1 # Blocking wall
+    N = 0  # Walkable terrain
+    B = 1  # Passed Blue border
+    R = 2  # Passed Red border
+    G = 3  # Blocking green terrain 
+
+    m = [
+            [W, W, W, W, W, W, W, W, W, W, W, W, W],
+            [W, N, N, N, R, N, N, N, N, N, B, N, W],
+            [W, B, G, B, G, R, G, G, G, N, G, N, W],
+            [W, N, R, N, B, N, N, N, R, N, N, N, W],
+            [W, N, G, N, G, B, G, R, G, G, G, R, W],
+            [W, N, B, N, N, N, N, N, N, N, B, N, W],
+            [W, R, G, G, G, G, G, B, G, G, G, G, W],
+            [W, W, W, W, W, W, W, W, W, W, W, W, W],
+        ]
+
+    return np.array(m)
